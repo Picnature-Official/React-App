@@ -19,6 +19,7 @@ a {
   height: 920px;
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
 .HeroGroup {
@@ -35,16 +36,15 @@ a {
   font-size: 60px;
   line-height: 1.2;
   opacity: 0;
-  animation: HeroAnimation;
-  animation-fill-mode: forwards;
-  animation-duration: 3s;
-  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: HeroAnimation 3s 0.1s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .Hero p {
   color: rgba(255, 255, 255, 0.8);
   font-size: 30px;
   line-height: 1.5;
+  animation: HeroAnimation 3s 0.2s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 0;
 }
 
 .Hero a {
@@ -56,6 +56,12 @@ a {
   padding: 9px 20px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)
+}
+
+.Hero a:hover{
+  background: white;
+  color: black;
 }
 
 @media (max-width: 640px) {
@@ -80,5 +86,55 @@ a {
   100% {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+.Hero svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.Hero .Logos {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 40px;
+  margin: 100px 0;
+  justify-items: center;
+}
+
+@media (max-width: 640px) {
+  .Hero .Logos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.Cards h2 {
+  margin: 50px 20px;
+  font-size: 60px;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(104deg, #050a27 0%,#4a548c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.CardGroup {
+  margin: 50px 40px 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  justify-items: center;
+}
+
+@media (max-width: 1060px) {
+  .CardGroup {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .CardGroup {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
